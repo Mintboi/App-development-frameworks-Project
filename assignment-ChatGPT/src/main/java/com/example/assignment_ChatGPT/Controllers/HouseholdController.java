@@ -1,39 +1,29 @@
 package com.example.assignment_ChatGPT.Controllers;
 
+import com.example.assignment_ChatGPT.DTOs.HouseholdDTO;
 import com.example.assignment_ChatGPT.Entities.Household;
 import com.example.assignment_ChatGPT.Services.HouseholdService;
-
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/households")
-@RequiredArgsConstructor
+@RequestMapping("/api/households")
 public class HouseholdController {
     private final HouseholdService householdService;
 
-    @GetMapping
-    public List<Household> getAllHouseholds() {
-        return householdService.getAllHouseholds();
+    public HouseholdController(HouseholdService householdService) {
+        this.householdService = householdService;
     }
 
     @PostMapping
-    public ResponseEntity<Household> createHousehold(@Valid @RequestBody Household household) {
-        return ResponseEntity.ok(householdService.createHousehold(household));
+    public HouseholdDTO createHousehold(@Valid @RequestBody HouseholdDTO householdDTO) {
+        return householdService.createHousehold(householdDTO);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Household> updateHousehold(@PathVariable Long id, @Valid @RequestBody Household household) {
-        return ResponseEntity.ok(householdService.updateHousehold(id, household));
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteHousehold(@PathVariable Long id) {
-        householdService.deleteHousehold(id);
-        return ResponseEntity.noContent().build();
+    @GetMapping
+    public List<HouseholdDTO> getAllHouseholds() {
+        return householdService.getAllHouseholds();
     }
 }
