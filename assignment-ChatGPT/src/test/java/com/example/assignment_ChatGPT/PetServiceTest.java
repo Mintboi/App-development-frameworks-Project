@@ -1,10 +1,11 @@
-package com.example.assignment_ChatGPT.Services;
+package com.example.assignment_ChatGPT;
 
 import com.example.assignment_ChatGPT.DTOs.PetDTO;
 import com.example.assignment_ChatGPT.Entities.Household;
 import com.example.assignment_ChatGPT.Entities.Pet;
 import com.example.assignment_ChatGPT.Repositories.HouseholdRepository;
 import com.example.assignment_ChatGPT.Repositories.PetRepository;
+import com.example.assignment_ChatGPT.Services.PetService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 

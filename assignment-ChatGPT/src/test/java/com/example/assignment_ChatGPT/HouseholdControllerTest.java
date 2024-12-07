@@ -1,5 +1,6 @@
-package com.example.assignment_ChatGPT.Controllers;
+package com.example.assignment_ChatGPT;
 
+import com.example.assignment_ChatGPT.Controllers.HouseholdController;
 import com.example.assignment_ChatGPT.DTOs.HouseholdDTO;
 import com.example.assignment_ChatGPT.Services.HouseholdService;
 import org.junit.jupiter.api.Test;
